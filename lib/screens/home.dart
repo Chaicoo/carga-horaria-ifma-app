@@ -59,7 +59,8 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         centerTitle: true, // Center the title
-        elevation: 0.0, // Set elevation to 0.0 to remove the shadow
+        elevation: 0.0,
+        automaticallyImplyLeading: false,
       ),
       body: Container(
         color: const Color(0xFF1B896E), // Set the background color here

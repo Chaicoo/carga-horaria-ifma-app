@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class MyProgressScreen extends StatelessWidget {
   final bool useWhiteAppBar; // Adicione essa propriedade
-  const MyProgressScreen({Key? key, this.useWhiteAppBar = false}) : super(key: key);
+  const MyProgressScreen({Key? key, this.useWhiteAppBar = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,8 @@ class MyProgressScreen extends StatelessWidget {
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: useWhiteAppBar ? Colors.white : null,
+        iconTheme: const IconThemeData(
+            color: Color(0xFF686565)), // Defina a cor do ícone de voltar
       ),
       body: Container(),
     );
