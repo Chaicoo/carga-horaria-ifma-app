@@ -5,7 +5,7 @@ import '../components/button.dart';
 import './home.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key, required bool useWhiteAppBar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -169,8 +169,7 @@ class LoginScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const HomeScreen()),
+                            builder: (context) => const HomeScreen()),
                       );
                     },
                   )

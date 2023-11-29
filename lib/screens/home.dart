@@ -1,4 +1,5 @@
 // screens/login.dart
+import 'package:carga_horaria_ifma/screens/my_progress.dart';
 import 'package:flutter/material.dart';
 import '../components/card.dart';
 import '../components/button.dart';
@@ -147,7 +148,11 @@ class HomeScreen extends StatelessWidget {
                     label: 'Meus Progressos',
                     icon: Icons.trending_up,
                     onPressed: () {
-                      // Lógica a ser executada quando o card for pressionado
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProgressScreen(useWhiteAppBar: true)),
+                      );
                     },
                   ),
                   NavigationCard(

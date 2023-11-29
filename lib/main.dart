@@ -1,4 +1,3 @@
-// main.dart
 import 'package:flutter/material.dart';
 import 'screens/login.dart';
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      home: const LoginScreen(),
+      home: const LoginScreen(useWhiteAppBar: true), // Passando o argumento
     );
   }
 }
