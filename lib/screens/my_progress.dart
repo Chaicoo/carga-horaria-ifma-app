@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../components/expanding_card.dart';
 
 class MyProgressScreen extends StatelessWidget {
-  final bool useWhiteAppBar; // Adicione essa propriedade
+  final bool useWhiteAppBar;
   const MyProgressScreen({Key? key, this.useWhiteAppBar = false})
       : super(key: key);
 
@@ -37,9 +38,49 @@ class MyProgressScreen extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: useWhiteAppBar ? Colors.white : null,
         iconTheme: const IconThemeData(
-            color: Color(0xFF686565)), // Defina a cor do ícone de voltar
+            color: Color(0xFF686565)),
       ),
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.white,
+          padding: const EdgeInsets.all(16.0),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Progressos de carga horária',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 23,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                  height: 0,
+                  letterSpacing: 0.46,
+                ),
+              ),
+              SizedBox(height: 26),
+              ExpandingCard(
+                title: 'Nome da disciplina (turno)',
+                row1Value: '10',
+                row2Value: '5',
+                row3Value: '50%',
+              ),
+              ExpandingCard(
+                title: 'Nome da disciplina (turno)',
+                row1Value: '15',
+                row2Value: '10',
+                row3Value: '66.7%',
+              ),
+              ExpandingCard(
+                title: 'Nome da disciplina (turno)',
+                row1Value: '20',
+                row2Value: '15',
+                row3Value: '75%',
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
