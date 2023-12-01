@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String label;
-  final double width; // Adicionando a propriedade de largura
+  final double width;
   final VoidCallback onPressed;
 
   const Button({

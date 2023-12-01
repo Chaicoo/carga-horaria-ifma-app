@@ -1,4 +1,5 @@
 // screens/login.dart
+import 'package:carga_horaria_ifma/screens/my_absences.dart';
 import 'package:carga_horaria_ifma/screens/my_progress.dart';
 import 'package:flutter/material.dart';
 import '../components/card.dart';
@@ -160,7 +161,11 @@ class HomeScreen extends StatelessWidget {
                     label: 'Meus afastamentos',
                     icon: Icons.event_busy,
                     onPressed: () {
-                      // Lógica a ser executada quando o card for pressionado
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyAbsencesScreen(useWhiteAppBar: true)),
+                      );
                     },
                   ),
                   NavigationCard(
