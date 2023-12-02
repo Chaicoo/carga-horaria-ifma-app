@@ -106,7 +106,7 @@ class _ExpandingCardState extends State<ExpandingCardProgress> {
                   '${(progressPercent * 100).toStringAsFixed(1)}%',
                   style: const TextStyle(
                     fontSize: 12.0,
-                    color: Color.fromARGB(255, 61, 60, 60),
+                    color: Colors.white,
                   ),
                 ),
               ),

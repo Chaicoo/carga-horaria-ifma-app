@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
+import '../components/custom_select.dart';
 import '../components/input_date.dart';
 
 class MyAbsencesScreen extends StatefulWidget {
@@ -27,8 +30,8 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 0.0),
-              child: const Text.rich(
+              margin: EdgeInsets.only(top: 0.0),
+              child: Text.rich(
                 TextSpan(
                   text: 'Meus afastamentos',
                   style: TextStyle(
@@ -47,7 +50,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: widget.useWhiteAppBar ? Colors.white : null,
-        iconTheme: const IconThemeData(color: Color(0xFF686565)),
+        iconTheme: IconThemeData(color: Color(0xFF686565)),
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height - appBarHeight,
@@ -55,13 +58,13 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment:
                   MainAxisAlignment.center, // Center the entire column
               children: [
-                const Text(
+                Text(
                   'Afastamentos',
                   style: TextStyle(
                     color: Colors.black,
@@ -72,11 +75,11 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                     letterSpacing: 0.46,
                   ),
                 ),
-                const SizedBox(height: 26),
+                SizedBox(height: 26),
                 Align(
                   alignment: Alignment.center,
                   child: CupertinoSegmentedControl(
-                    children: const {
+                    children: {
                       0: Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Align(
@@ -100,26 +103,64 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                     },
                   ),
                 ),
-                const SizedBox(height: 26),
+                SizedBox(height: 26),
                 Visibility(
                   visible: selectedSegment == 0,
-                  child: const Column(
+                  child: Column(
                     children: [
-                      Text('Solicite um afastamento das aulas'),
+                      Text(
+                        'Solicite um afastamento das aulas',
+                        style: const TextStyle(
+                          color: Color(0xFF4C525A),
+                          fontSize: 18,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
                       SizedBox(height: 16),
-                      Row(
+                      Column(
                         children: [
-                          Expanded(
-                            flex: 3,
-                            child: DateInputCard(title: 'De:', type: 'initial'),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: DateInputCard(
+                                    title: 'De:', type: 'initial'),
+                              ),
+                              SizedBox(width: 16),
+                              Expanded(
+                                flex: 3,
+                                child:
+                                    DateInputCard(title: 'A:', type: 'final'),
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 16),
-                          Expanded(
-                            flex: 3,
-                            child: DateInputCard(title: 'A:', type: 'final'),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  top: 8.0),
+                              child: Text(
+                                "Selecione um motivo:",
+                                style: const TextStyle(
+                                  color: Color(0xFF4C525A),
+                                  fontSize: 17,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0,
+                                ),
+                              ),
+                            ),
+                          ),
+                          CustomSelect(
+                            items: ['Viagem', 'Doença', 'Evento'],
+                            onChanged: (value) {
+                              // Lógica a ser executada quando um item for selecionado
+                            },
                           ),
                         ],
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -127,8 +168,8 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                   visible: selectedSegment == 1,
                   child: Column(
                     children: [
-                      const Text('Visualize seus afastamentos'),
-                      const SizedBox(height: 16),
+                      Text('Visualize seus afastamentos'),
+                      SizedBox(height: 16),
                       Button(
                         label: '2',
                         width: 100,

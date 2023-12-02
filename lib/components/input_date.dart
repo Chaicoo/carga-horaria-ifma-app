@@ -35,7 +35,7 @@ class DateInputCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: 6), // Espaço entre o título e o TextFormField
+            const SizedBox(width: 6),
             Flexible(
               flex: 5,
               child: buildDateInputWidget(context),
