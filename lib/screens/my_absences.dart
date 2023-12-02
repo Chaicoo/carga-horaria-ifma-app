@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
 import '../components/custom_select.dart';
 import '../components/input_date.dart';
+import '../components/input_file.dart';
 import '../components/input_text_area.dart';
 
 class MyAbsencesScreen extends StatefulWidget {
@@ -183,6 +184,10 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                           ),
                           InputTextArea(
                             placeholder: "Descrição ...",
+                          ),
+                          FileInput(
+                            label: "Selecione um arquivo:",
+                            icon: Icons.attach_file,
                           ),
                           Button(
                             label: 'SOLICITAR',
