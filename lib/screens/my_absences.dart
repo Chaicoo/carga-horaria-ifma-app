@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
 import '../components/custom_select.dart';
 import '../components/input_date.dart';
+import '../components/input_text_area.dart';
 
 class MyAbsencesScreen extends StatefulWidget {
   final bool useWhiteAppBar;
@@ -81,14 +82,14 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                   child: CupertinoSegmentedControl(
                     children: {
                       0: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Align(
                           alignment: Alignment.center,
                           child: Text('Solicitar afastamento'),
                         ),
                       ),
                       1: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(12.0),
                         child: Align(
                           alignment: Alignment.center,
                           child: Text('Visualizar'),
@@ -137,28 +138,59 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                             ],
                           ),
                           Align(
-                            alignment: Alignment.topLeft,
+                            alignment: Alignment.center,
                             child: Container(
                               margin: EdgeInsets.only(
-                                  top: 8.0),
-                              child: Text(
-                                "Selecione um motivo:",
-                                style: const TextStyle(
-                                  color: Color(0xFF4C525A),
-                                  fontSize: 17,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0,
-                                ),
+                                  top:
+                                      16.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    flex: 3,
+                                    child: Container(
+                                      margin: EdgeInsets.only(top: 26.0),
+                                      child: Text(
+                                        "Selecione um motivo:",
+                                        style: const TextStyle(
+                                          color: Color(0xFF4C525A),
+                                          fontSize: 17,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w400,
+                                          height: 0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 16),
+                                  Expanded(
+                                    flex: 3,
+                                    child: CustomSelect(
+                                      items: [
+                                        'Viagem',
+                                        'Doença',
+                                        'Evento',
+                                        'Consulta médica'
+                                      ],
+                                      onChanged: (value) {
+                                        // Lógica a ser executada quando um item for selecionado
+                                      },
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                          CustomSelect(
-                            items: ['Viagem', 'Doença', 'Evento'],
-                            onChanged: (value) {
-                              // Lógica a ser executada quando um item for selecionado
-                            },
+                          InputTextArea(
+                            placeholder: "Descrição ...",
                           ),
+                          Button(
+                            label: 'SOLICITAR',
+                            width: 150,
+                            onPressed: () {
+                              // Lógica a ser executada quando o botão for pressionado
+                            },
+                          )
                         ],
                       )
                     ],

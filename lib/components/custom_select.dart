@@ -25,33 +25,35 @@ class _CustomSelectState extends State<CustomSelect> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      elevation: 3,
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DropdownButton<String>(
-              isExpanded: true,
-              value: selectedItem,
-              onChanged: (String? value) {
-                setState(() {
-                  selectedItem = value!;
-                  widget.onChanged(value);
-                });
-              },
-              items: widget.items.map((String item) {
-                return DropdownMenuItem<String>(
-                  value: item,
-                  child: Text(item),
-                );
-              }).toList(),
-            ),
-          ],
+    return Container(
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        elevation: 3,
+        child: Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DropdownButton<String>(
+                isExpanded: true,
+                value: selectedItem,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedItem = value!;
+                    widget.onChanged(value);
+                  });
+                },
+                items: widget.items.map((String item) {
+                  return DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
