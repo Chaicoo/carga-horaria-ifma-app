@@ -65,114 +65,127 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Container(
         color: const Color(0xFF1B896E), // Set the background color here
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // Centered circle with image
-            Center(
-              child: Container(
-                margin: EdgeInsets.only(top: appBarHeight + 18.0),
-                width: 100, // Adjust the width of the circle
-                height: 100, // Adjust the height of the circle
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white, // Set the circle color
-                ),
-                child: Image.asset('../assets/image/if_logo.png'),
-              ),
-            ),
-            // Container with specified decoration
-            Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              decoration: const ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(43),
-                    topRight: Radius.circular(43),
-                  ),
-                ),
-              ),
+        child: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 20), // Adjust the spacing as needed
-                  SizedBox(
-                    height: 36,
-                    child: Stack(
+                  // Centered circle with image
+                  Center(
+                    child: Container(
+                      margin: EdgeInsets.only(top: appBarHeight + 18.0),
+                      width: 100, // Adjust the width of the circle
+                      height: 100, // Adjust the height of the circle
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white, // Set the circle color
+                      ),
+                      child: Image.asset('assets/image/if_logo.png'),
+                    ),
+                  ),
+                  // Container with specified decoration
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    decoration: const ShapeDecoration(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(43),
+                          topRight: Radius.circular(43),
+                        ),
+                      ),
+                    ),
+                    child: Column(
                       children: [
-                        const Positioned(
-                          left: 0,
-                          right: 0,
-                          top: 0,
-                          child: Text(
-                            'LOGIN',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFF1B896E),
-                              fontSize: 24,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 14,
-                          top: 12,
-                          child: Container(
-                            width: 112,
-                            decoration: const ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.5,
-                                  strokeAlign: BorderSide.strokeAlignCenter,
-                                  color: Color(0xFFC4C4C4),
+                        const SizedBox(
+                            height: 20), // Adjust the spacing as needed
+                        SizedBox(
+                          height: 36,
+                          child: Stack(
+                            children: [
+                              const Positioned(
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                child: Text(
+                                  'LOGIN',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xFF1B896E),
+                                    fontSize: 24,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    height: 0,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 14,
-                          top: 12,
-                          child: Container(
-                            width: 112,
-                            decoration: const ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  width: 0.5,
-                                  strokeAlign: BorderSide.strokeAlignCenter,
-                                  color: Color(0xFFC4C4C4),
+                              Positioned(
+                                left: 14,
+                                top: 12,
+                                child: Container(
+                                  width: 112,
+                                  decoration: const ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                        width: 0.5,
+                                        strokeAlign:
+                                            BorderSide.strokeAlignCenter,
+                                        color: Color(0xFFC4C4C4),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                              Positioned(
+                                right: 14,
+                                top: 12,
+                                child: Container(
+                                  width: 112,
+                                  decoration: const ShapeDecoration(
+                                    shape: RoundedRectangleBorder(
+                                      side: BorderSide(
+                                        width: 0.5,
+                                        strokeAlign:
+                                            BorderSide.strokeAlignCenter,
+                                        color: Color(0xFFC4C4C4),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        const SizedBox(
+                            height: 20), // Adjust the spacing as needed
+                        Input(
+                          labelText: 'Matricula SIAPE',
+                          controller: TextEditingController(),
+                        ),
+                        const SizedBox(
+                            height: 20), // Adjust the spacing as needed
+                        Input(
+                          labelText: 'Senha',
+                          controller: TextEditingController(),
+                        ),
+                        const SizedBox(
+                            height: 20), // Adjust the spacing as needed
+                        Button(
+                          label: 'LOGIN',
+                          width: 200,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomeScreen()),
+                            );
+                          },
+                        )
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20), // Adjust the spacing as needed
-                  Input(
-                    labelText: 'Matricula SIAPE',
-                    controller: TextEditingController(),
-                  ),
-                  const SizedBox(height: 20), // Adjust the spacing as needed
-                  Input(
-                    labelText: 'Senha',
-                    controller: TextEditingController(),
-                  ),
-                  const SizedBox(height: 20), // Adjust the spacing as needed
-                  Button(
-                    label: 'LOGIN',
-                    width: 200,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()),
-                      );
-                    },
-                  )
                 ],
               ),
             ),
