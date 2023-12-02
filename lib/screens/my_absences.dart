@@ -1,10 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import '../components/button.dart';
+import '../components/input_date.dart';
 
 class MyAbsencesScreen extends StatefulWidget {
   final bool useWhiteAppBar;
 
-  const MyAbsencesScreen({Key? key, this.useWhiteAppBar = false}) : super(key: key);
+  const MyAbsencesScreen({Key? key, this.useWhiteAppBar = false})
+      : super(key: key);
 
   @override
   _MyAbsencesScreenState createState() => _MyAbsencesScreenState();
@@ -55,7 +58,8 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center, // Center the entire column
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center the entire column
               children: [
                 const Text(
                   'Afastamentos',
@@ -97,9 +101,44 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                   ),
                 ),
                 const SizedBox(height: 26),
-                selectedSegment == 0
-                    ? const Text('Solicite um afastamento das aulas')
-                    : const Text('Visualize seus afastamentos'),
+                Visibility(
+                  visible: selectedSegment == 0,
+                  child: const Column(
+                    children: [
+                      Text('Solicite um afastamento das aulas'),
+                      SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: DateInputCard(title: 'De:', type: 'initial'),
+                          ),
+                          SizedBox(width: 16),
+                          Expanded(
+                            flex: 3,
+                            child: DateInputCard(title: 'A:', type: 'final'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Visibility(
+                  visible: selectedSegment == 1,
+                  child: Column(
+                    children: [
+                      const Text('Visualize seus afastamentos'),
+                      const SizedBox(height: 16),
+                      Button(
+                        label: '2',
+                        width: 100,
+                        onPressed: () {
+                          // Lógica a ser executada quando o botão for pressionado
+                        },
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
