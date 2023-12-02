@@ -177,7 +177,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15), // Adjust the spacing as needed
                   Button(
-                    label: 'Sair',
+                    label: 'SAIR',
                     width: 100,
                     onPressed: () {
                       // Lógica a ser executada quando o botão for pressionado

@@ -28,12 +28,12 @@ class _FileInputState extends State<FileInput> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: _pickFile,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: Container(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(12.0),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
             borderRadius: BorderRadius.circular(10.0),
@@ -43,11 +43,9 @@ class _FileInputState extends State<FileInput> {
             children: [
               Row(
                 children: [
-                  Icon(widget.icon),
-                  SizedBox(width: 10.0),
                   Text(
                     widget.label,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF4C525A),
                       fontSize: 18,
                       fontFamily: 'Poppins',
@@ -60,15 +58,17 @@ class _FileInputState extends State<FileInput> {
               if (filePath != null)
                 Text(
                   filePath!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF1B896E),
                     fontSize: 16,
                     fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                     height: 0,
                     letterSpacing: 0.32,
                   ),
                 ),
+              const SizedBox(width: 10.0),
+              Icon(widget.icon, color: Color(0xFF1B896E)),
             ],
           ),
         ),

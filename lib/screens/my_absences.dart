@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
+import '../components/card_absences.dart';
 import '../components/custom_select.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
@@ -141,9 +142,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                           Align(
                             alignment: Alignment.center,
                             child: Container(
-                              margin: EdgeInsets.only(
-                                  top:
-                                      16.0),
+                              margin: EdgeInsets.only(top: 16.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -187,15 +186,17 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                           ),
                           FileInput(
                             label: "Selecione um arquivo:",
-                            icon: Icons.attach_file,
+                            icon: Icons.note_add,
                           ),
+                          SizedBox(height: 16),
                           Button(
                             label: 'SOLICITAR',
                             width: 150,
                             onPressed: () {
                               // Lógica a ser executada quando o botão for pressionado
                             },
-                          )
+                          ),
+                          SizedBox(height: 60),
                         ],
                       )
                     ],
@@ -205,15 +206,47 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                   visible: selectedSegment == 1,
                   child: Column(
                     children: [
-                      Text('Visualize seus afastamentos'),
+                      Text(
+                        'Visualize seus afastamentos',
+                        style: const TextStyle(
+                          color: Color(0xFF4C525A),
+                          fontSize: 18,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
+                      ),
                       SizedBox(height: 16),
-                      Button(
-                        label: '2',
-                        width: 100,
-                        onPressed: () {
-                          // Lógica a ser executada quando o botão for pressionado
-                        },
-                      )
+                      ExpandingCardAbsences(
+                        title: 'SCDP [Viagem] - 12/07 a 14/07',
+                        rowTitle1: 'Descrição:',
+                        rowDescription1:
+                            'Participação em oficina na SNCT realizada em Imperatriz.',
+                        rowTitle2: 'Horários:',
+                        rowDescription2: 'Row 2 Value',
+                        rowTitle3: 'Status:',
+                        rowDescription3: 'Deferido',
+                      ),
+                      ExpandingCardAbsences(
+                        title: 'SCDP [Viagem] - 16/07',
+                        rowTitle1: 'Descrição:',
+                        rowDescription1:
+                            'Participação em oficina na SNCT realizada em Imperatriz.',
+                        rowTitle2: 'Horários:',
+                        rowDescription2: 'Row 2 Value',
+                        rowTitle3: 'Status:',
+                        rowDescription3: 'Deferido',
+                      ),
+                      ExpandingCardAbsences(
+                        title: 'SCDP [Viagem] - 12/07 a 14/07',
+                        rowTitle1: 'Descrição:',
+                        rowDescription1:
+                            'Participação em oficina na SNCT realizada em Imperatriz.',
+                        rowTitle2: 'Horários:',
+                        rowDescription2: 'Row 2 Value',
+                        rowTitle3: 'Status:',
+                        rowDescription3: 'Deferido',
+                      ),
                     ],
                   ),
                 ),
