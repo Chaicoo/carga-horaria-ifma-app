@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/expanding_card.dart';
+import '../components/card_progress.dart';
 
 class MyProgressScreen extends StatelessWidget {
   final bool useWhiteAppBar;
@@ -59,37 +59,37 @@ class MyProgressScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 26),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '10',
                 row2Value: '5',
                 progressPercent: 0.5,
               ),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '15',
                 row2Value: '10',
                 progressPercent: 0.667,
               ),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '20',
                 row2Value: '15',
                 progressPercent: 0.75,
               ),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '20',
                 row2Value: '15',
                 progressPercent: 0.75,
               ),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '20',
                 row2Value: '15',
                 progressPercent: 0.75,
               ),
-              ExpandingCard(
+              ExpandingCardProgress(
                 title: 'Nome da disciplina (turno)',
                 row1Value: '20',
                 row2Value: '15',
