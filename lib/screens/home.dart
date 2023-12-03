@@ -1,8 +1,10 @@
 // screens/login.dart
 import 'package:carga_horaria_ifma/screens/classes_available.dart';
+import 'package:carga_horaria_ifma/screens/general_schedule.dart';
 import 'package:carga_horaria_ifma/screens/login.dart';
 import 'package:carga_horaria_ifma/screens/my_absences.dart';
 import 'package:carga_horaria_ifma/screens/my_progress.dart';
+import 'package:carga_horaria_ifma/screens/my_schedule.dart';
 import 'package:flutter/material.dart';
 import '../components/card.dart';
 import '../components/button.dart';
@@ -138,14 +140,24 @@ class HomeScreen extends StatelessWidget {
                     label: 'Horários por turma',
                     icon: Icons.calendar_month_outlined,
                     onPressed: () {
-                      // Lógica a ser executada quando o card for pressionado
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GeneralScheduleScreen(
+                                useWhiteAppBar: true)),
+                      );
                     },
                   ),
                   NavigationCard(
                     label: 'Meus horários',
                     icon: Icons.calendar_month_outlined,
                     onPressed: () {
-                      // Lógica a ser executada quando o card for pressionado
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyScheduleScreen(
+                                useWhiteAppBar: true)),
+                      );
                     },
                   ),
                   NavigationCard(
