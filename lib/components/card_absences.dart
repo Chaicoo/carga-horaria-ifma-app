@@ -4,22 +4,16 @@ import 'button.dart';
 
 class ExpandingCardAbsences extends StatefulWidget {
   final String title;
-  final String rowTitle1;
-  final String rowDescription1;
-  final String rowTitle2;
-  final List<String> rowDescription2; // Change to a list of strings
-  final String rowTitle3;
-  final int rowDescription3;
+  final String description;
+  final List<String> schedules;
+  final int status;
 
   const ExpandingCardAbsences({
     Key? key,
     required this.title,
-    required this.rowTitle1,
-    required this.rowDescription1,
-    required this.rowTitle2,
-    required this.rowDescription2,
-    required this.rowTitle3,
-    required this.rowDescription3,
+    required this.description,
+    required this.schedules,
+    required this.status,
   }) : super(key: key);
 
   @override
@@ -54,13 +48,11 @@ class _ExpandingCardAbsencesState extends State<ExpandingCardAbsences> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildRow(widget.rowTitle1, widget.rowDescription1),
+                _buildRow("Descrição", widget.description),
                 _buildDivider(),
-                _buildColumn(widget.rowTitle2,
-                    widget.rowDescription2), // Updated to use _buildColumn
+                _buildColumn("Horários", widget.schedules),
                 _buildDivider(),
-                _buildRow(widget.rowTitle3,
-                    _getDescriptionText(widget.rowDescription3)),
+                _buildRow("Status", _getDescriptionText(widget.status)),
                 const SizedBox(height: 16),
                 Align(
                   alignment: Alignment.center,

@@ -4,14 +4,14 @@ import 'button.dart';
 
 class CardTakeClass extends StatelessWidget {
   final String title;
-  final String row1Value;
-  final String row2Value;
+  final String date;
+  final String status;
 
   const CardTakeClass({
     Key? key,
     required this.title,
-    required this.row1Value,
-    required this.row2Value,
+    required this.date,
+    required this.status,
   }) : super(key: key);
 
   @override
@@ -44,9 +44,9 @@ class CardTakeClass extends StatelessWidget {
                 1: FlexColumnWidth(3),
               },
               children: [
-                _buildTableRow("Data", row1Value),
+                _buildTableRow("Data", date),
                 _buildDivider(),
-                _buildTableRow("Status", row2Value),
+                _buildTableRow("Status", status),
               ],
             ),
             SizedBox(height: 16),

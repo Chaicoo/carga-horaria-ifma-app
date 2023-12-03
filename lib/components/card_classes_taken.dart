@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class CardClassTaken extends StatelessWidget {
   final String title;
-  final String row1Value;
-  final String row2Value;
-  final String row3Value;
+  final String date;
+  final String status;
+  final String takenOverBy;
 
   const CardClassTaken({
     Key? key,
     required this.title,
-    required this.row1Value,
-    required this.row2Value,
-    required this.row3Value,
+    required this.date,
+    required this.status,
+    required this.takenOverBy,
   }) : super(key: key);
 
   @override
@@ -44,11 +44,11 @@ class CardClassTaken extends StatelessWidget {
                 1: FlexColumnWidth(3),
               },
               children: [
-                _buildTableRow("Data", row1Value),
+                _buildTableRow("Data", date),
                 _buildDivider(),
-                _buildTableRow("Status", row2Value),
+                _buildTableRow("Status", status),
                 _buildDivider(),
-                _buildTableRow("Assumida por", row3Value),
+                _buildTableRow("Assumida por", takenOverBy),
               ],
             ),
           ],

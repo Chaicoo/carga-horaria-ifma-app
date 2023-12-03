@@ -219,44 +219,35 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                       SizedBox(height: 16),
                       ExpandingCardAbsences(
                         title: 'SCDP [Viagem] - 12/07 a 14/07',
-                        rowTitle1: 'Descrição:',
-                        rowDescription1:
+                        description:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
-                        rowTitle2: 'Horários:',
-                        rowDescription2: [
+                        schedules: [
                           'M3 - Estrutura de dados (Info 2)',
                           'M4 - Estrutura de dados (Info 2)'
                         ],
-                        rowTitle3: 'Status:',
-                        rowDescription3: 0,
+                        status: 0,
                       ),
                       ExpandingCardAbsences(
                         title: 'SCDP [Viagem] - 16/07',
-                        rowTitle1: 'Descrição:',
-                        rowDescription1:
+                        description:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
-                        rowTitle2: 'Horários:',
-                        rowDescription2: [
+                        schedules: [
                           'M3 - Estrutura de dados (Info 2)',
                           'M4 - Estrutura de dados (Info 2)'
                         ],
-                        rowTitle3: 'Status:',
-                        rowDescription3: 1,
+                        status: 1,
                       ),
                       ExpandingCardAbsences(
                         title: 'SCDP [Viagem] - 12/07 a 14/07',
-                        rowTitle1: 'Descrição:',
-                        rowDescription1:
+                        description:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
-                        rowTitle2: 'Horários:',
-                        rowDescription2: [
+                        schedules: [
                           'M3 - Estrutura de dados (Info 2)',
                           'M4 - Estrutura de dados (Info 2)',
                           'M5 - Estrutura de dados (Info 2)',
                           'M6 - Estrutura de dados (Info 2)'
                         ],
-                        rowTitle3: 'Status:',
-                        rowDescription3: 2,
+                        status: 2,
                       ),
                       SizedBox(height: 240),
                     ],

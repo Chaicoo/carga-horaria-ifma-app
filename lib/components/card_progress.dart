@@ -3,15 +3,15 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ExpandingCardProgress extends StatefulWidget {
   final String title;
-  final String row1Value;
-  final String row2Value;
+  final String workload;
+  final String workloadCompleted;
   final double progressPercent;
 
   const ExpandingCardProgress({
     Key? key,
     required this.title,
-    required this.row1Value,
-    required this.row2Value,
+    required this.workload,
+    required this.workloadCompleted,
     required this.progressPercent,
   }) : super(key: key);
 
@@ -50,9 +50,9 @@ class _ExpandingCardState extends State<ExpandingCardProgress> {
                 1: FlexColumnWidth(3),
               },
               children: [
-                _buildTableRow('C.H.', widget.row1Value),
+                _buildTableRow('C.H.', widget.workload),
                 _buildDivider(),
-                _buildTableRow('C.H. Cumprida', widget.row2Value),
+                _buildTableRow('C.H. Cumprida', widget.workloadCompleted),
                 _buildDivider(),
                 _buildProgressRow('Progresso', widget.progressPercent),
               ],

@@ -67,7 +67,7 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment:
-                  MainAxisAlignment.center, // Center the entire column
+                  MainAxisAlignment.center,
               children: [
                 Text(
                   'Aulas disponíveis',
@@ -128,18 +128,18 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                         children: [
                           CardTakeClass(
                             title: 'Nome da disciplina (turma - turno)',
-                            row1Value: '12/10/2023',
-                            row2Value: 'Deferido',
+                            date: '12/10/2023',
+                            status: 'Deferido',
                           ),
                           CardTakeClass(
                             title: 'Nome da disciplina (turma - turno)',
-                            row1Value: '12/10/2023',
-                            row2Value: 'Deferido',
+                            date: '12/10/2023',
+                            status: 'Deferido',
                           ),
                           CardTakeClass(
                             title: 'Nome da disciplina (turma - turno)',
-                            row1Value: '12/10/2023',
-                            row2Value: 'Deferido',
+                            date: '12/10/2023',
+                            status: 'Deferido',
                           ),
                           SizedBox(height: 60),
                         ],
@@ -164,15 +164,15 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                       SizedBox(height: 16),
                       CardClassTaken(
                         title: 'Nome da disciplina (turma - turno)',
-                        row1Value: '12/10/2023',
-                        row2Value: 'Deferido',
-                        row3Value: 'Luis Fernando Maia',
+                        date: '12/10/2023',
+                        status: 'Deferido',
+                        takenOverBy: 'Luis Fernando Maia',
                       ),
                       CardClassTaken(
                         title: 'Nome da disciplina (turma - turno)',
-                        row1Value: '12/10/2023',
-                        row2Value: 'Deferido',
-                        row3Value: 'Luis Fernando Maia',
+                        date: '12/10/2023',
+                        status: 'Deferido',
+                        takenOverBy: 'Luis Fernando Maia',
                       ),
                       SizedBox(height: 100),
                     ],
