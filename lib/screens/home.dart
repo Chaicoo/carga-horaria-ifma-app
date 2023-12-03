@@ -1,5 +1,6 @@
 // screens/login.dart
 import 'package:carga_horaria_ifma/screens/classes_available.dart';
+import 'package:carga_horaria_ifma/screens/login.dart';
 import 'package:carga_horaria_ifma/screens/my_absences.dart';
 import 'package:carga_horaria_ifma/screens/my_progress.dart';
 import 'package:flutter/material.dart';
@@ -178,8 +179,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const ClassesAvailableScreen(useWhiteAppBar: true)),
+                            builder: (context) => const ClassesAvailableScreen(
+                                useWhiteAppBar: true)),
                       );
                     },
                   ),
@@ -188,7 +189,11 @@ class HomeScreen extends StatelessWidget {
                     label: 'SAIR',
                     width: 100,
                     onPressed: () {
-                      // Lógica a ser executada quando o botão for pressionado
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen(useWhiteAppBar: false,)),
+                      );
                     },
                   )
                 ],

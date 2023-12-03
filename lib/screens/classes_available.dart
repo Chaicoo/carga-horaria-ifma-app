@@ -136,6 +136,11 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                             row1Value: '12/10/2023',
                             row2Value: 'Deferido',
                           ),
+                          CardTakeClass(
+                            title: 'Nome da disciplina (turma - turno)',
+                            row1Value: '12/10/2023',
+                            row2Value: 'Deferido',
+                          ),
                           SizedBox(height: 60),
                         ],
                       )

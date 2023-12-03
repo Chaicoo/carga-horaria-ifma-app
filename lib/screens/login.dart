@@ -176,7 +176,7 @@ class LoginScreen extends StatelessWidget {
                           label: 'LOGIN',
                           width: 200,
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const HomeScreen()),
