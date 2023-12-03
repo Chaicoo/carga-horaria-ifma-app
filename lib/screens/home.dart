@@ -1,4 +1,5 @@
 // screens/login.dart
+import 'package:carga_horaria_ifma/screens/classes_available.dart';
 import 'package:carga_horaria_ifma/screens/my_absences.dart';
 import 'package:carga_horaria_ifma/screens/my_progress.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +154,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MyProgressScreen(useWhiteAppBar: true)),
+                            builder: (context) =>
+                                const MyProgressScreen(useWhiteAppBar: true)),
                       );
                     },
                   ),
@@ -161,10 +163,11 @@ class HomeScreen extends StatelessWidget {
                     label: 'Meus afastamentos',
                     icon: Icons.event_busy,
                     onPressed: () {
-                       Navigator.push(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MyAbsencesScreen(useWhiteAppBar: true)),
+                            builder: (context) =>
+                                const MyAbsencesScreen(useWhiteAppBar: true)),
                       );
                     },
                   ),
@@ -172,7 +175,12 @@ class HomeScreen extends StatelessWidget {
                     label: 'Aulas disponíveis',
                     icon: Icons.class_outlined,
                     onPressed: () {
-                      // Lógica a ser executada quando o card for pressionado
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const ClassesAvailableScreen(useWhiteAppBar: true)),
+                      );
                     },
                   ),
                   const SizedBox(height: 15), // Adjust the spacing as needed

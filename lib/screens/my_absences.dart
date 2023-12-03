@@ -258,6 +258,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowTitle3: 'Status:',
                         rowDescription3: 2,
                       ),
+                      SizedBox(height: 240),
                     ],
                   ),
                 ),
