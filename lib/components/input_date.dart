@@ -37,7 +37,7 @@ class DateInputCard extends StatelessWidget {
             ),
             const SizedBox(width: 6),
             Flexible(
-              flex: 5,
+              flex: 6,
               child: buildDateInputWidget(context),
             ),
           ],
@@ -49,26 +49,39 @@ class DateInputCard extends StatelessWidget {
   Widget buildDateInputWidget(BuildContext context) {
     TextEditingController dateController = TextEditingController();
 
-    return TextFormField(
-      controller: dateController,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        contentPadding: EdgeInsets.symmetric(vertical: 2),
-      ),
-      readOnly: true,
-      onTap: () async {
-        DateTime? selectedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime(2101),
-        );
+    return Padding(
+      padding: const EdgeInsets.only(left: 1.0),
+      child: TextFormField(
+        controller: dateController,
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+        ),
+        readOnly: true,
+        onTap: () async {
+          DateTime? selectedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2101),
+          );
 
-        if (selectedDate != null) {
-          dateController.text =
-              "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
-        }
-      },
+          if (selectedDate != null) {
+            // Check if day or month is less than 10 and add leading zero
+            final day = selectedDate.day < 10 ? '0${selectedDate.day}' : '${selectedDate.day}';
+            final month = selectedDate.month < 10 ? '0${selectedDate.month}' : '${selectedDate.month}';
+
+            dateController.text = "$day/$month";
+          }
+        },
+        style: const TextStyle(
+          color: Color(0xFF758D94),
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w400,
+          height: 0,
+        ),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
