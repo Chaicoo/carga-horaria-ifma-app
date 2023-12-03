@@ -1,4 +1,5 @@
 // screens/login.dart
+import 'package:carga_horaria_ifma/components/input_password.dart';
 import 'package:flutter/material.dart';
 import '../components/input.dart';
 import '../components/button.dart';
@@ -166,7 +167,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(
                             height: 20), // Adjust the spacing as needed
-                        Input(
+                        InputPassword(
                           labelText: 'Senha',
                           controller: TextEditingController(),
                         ),
