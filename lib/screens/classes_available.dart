@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
 import '../components/card_absences.dart';
+import '../components/card_classes_taken.dart';
 import '../components/card_take_classes.dart';
 import '../components/custom_select.dart';
 import '../components/input_date.dart';
@@ -156,7 +157,19 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                         ),
                       ),
                       SizedBox(height: 16),
-                      SizedBox(height: 240),
+                      CardClassTaken(
+                        title: 'Nome da disciplina (turma - turno)',
+                        row1Value: '12/10/2023',
+                        row2Value: 'Deferido',
+                        row3Value: 'Luis Fernando Maia',
+                      ),
+                      CardClassTaken(
+                        title: 'Nome da disciplina (turma - turno)',
+                        row1Value: '12/10/2023',
+                        row2Value: 'Deferido',
+                        row3Value: 'Luis Fernando Maia',
+                      ),
+                      SizedBox(height: 100),
                     ],
                   ),
                 ),
