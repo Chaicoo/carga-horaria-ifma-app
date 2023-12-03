@@ -207,7 +207,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                   child: Column(
                     children: [
                       Text(
-                        'Visualize seus afastamentos',
+                        'Visualize suas solicitações de afastamento',
                         style: const TextStyle(
                           color: Color(0xFF4C525A),
                           fontSize: 18,
@@ -225,7 +225,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowTitle2: 'Horários:',
                         rowDescription2: 'Row 2 Value',
                         rowTitle3: 'Status:',
-                        rowDescription3: 'Deferido',
+                        rowDescription3: 0,
                       ),
                       ExpandingCardAbsences(
                         title: 'SCDP [Viagem] - 16/07',
@@ -235,7 +235,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowTitle2: 'Horários:',
                         rowDescription2: 'Row 2 Value',
                         rowTitle3: 'Status:',
-                        rowDescription3: 'Deferido',
+                        rowDescription3: 1,
                       ),
                       ExpandingCardAbsences(
                         title: 'SCDP [Viagem] - 12/07 a 14/07',
@@ -245,7 +245,7 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowTitle2: 'Horários:',
                         rowDescription2: 'Row 2 Value',
                         rowTitle3: 'Status:',
-                        rowDescription3: 'Deferido',
+                        rowDescription3: 2,
                       ),
                     ],
                   ),

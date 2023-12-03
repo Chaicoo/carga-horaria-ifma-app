@@ -9,7 +9,7 @@ class ExpandingCardAbsences extends StatefulWidget {
   final String rowTitle2;
   final String rowDescription2;
   final String rowTitle3;
-  final String rowDescription3;
+  final int rowDescription3;
 
   const ExpandingCardAbsences({
     Key? key,
@@ -58,15 +58,19 @@ class _ExpandingCardAbsencesState extends State<ExpandingCardAbsences> {
                 _buildDivider(),
                 _buildRow(widget.rowTitle2, widget.rowDescription2),
                 _buildDivider(),
-                _buildRow(widget.rowTitle3, widget.rowDescription3),
+                _buildRow(widget.rowTitle3,
+                    _getDescriptionText(widget.rowDescription3)),
                 const SizedBox(height: 16),
-                Button(
-                  label: 'EXCLUIR',
-                  width: 100,
-                  onPressed: () {
-                    // Lógica a ser executada quando o botão for pressionado
-                  },
-                )
+                Align(
+                  alignment: Alignment.center,
+                  child: Button(
+                    label: 'EXCLUIR',
+                    width: 100,
+                    onPressed: () {
+                      // Lógica a ser executada quando o botão for pressionado
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -113,5 +117,18 @@ class _ExpandingCardAbsencesState extends State<ExpandingCardAbsences> {
     return const Divider(
       color: Color(0xFFD8D8D8),
     );
+  }
+
+  String _getDescriptionText(int value) {
+    switch (value) {
+      case 0:
+        return "Em análise";
+      case 1:
+        return "Deferido";
+      case 2:
+        return "Indeferido";
+      default:
+        return "";
+    }
   }
 }
