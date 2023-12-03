@@ -54,6 +54,7 @@ class DateInputCard extends StatelessWidget {
       child: TextFormField(
         controller: dateController,
         decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 8.0),
           border: OutlineInputBorder(),
         ),
         readOnly: true,
@@ -66,7 +67,6 @@ class DateInputCard extends StatelessWidget {
           );
 
           if (selectedDate != null) {
-            // Check if day or month is less than 10 and add leading zero
             final day = selectedDate.day < 10 ? '0${selectedDate.day}' : '${selectedDate.day}';
             final month = selectedDate.month < 10 ? '0${selectedDate.month}' : '${selectedDate.month}';
 

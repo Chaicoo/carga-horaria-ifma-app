@@ -26,6 +26,14 @@ class _FileInputState extends State<FileInput> {
     }
   }
 
+  String getFileName() {
+    if (filePath != null) {
+      File file = File(filePath!);
+      return file.path.split('/').last;
+    }
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -41,23 +49,24 @@ class _FileInputState extends State<FileInput> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Text(
-                    widget.label,
-                    style: const TextStyle(
-                      color: Color(0xFF4C525A),
-                      fontSize: 18,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                      height: 0,
+              if (filePath == null)
+                Row(
+                  children: [
+                    Text(
+                      widget.label,
+                      style: const TextStyle(
+                        color: Color(0xFF4C525A),
+                        fontSize: 18,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                        height: 0,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               if (filePath != null)
                 Text(
-                  filePath!,
+                  getFileName(),
                   style: const TextStyle(
                     color: Color(0xFF1B896E),
                     fontSize: 16,
@@ -67,8 +76,8 @@ class _FileInputState extends State<FileInput> {
                     letterSpacing: 0.32,
                   ),
                 ),
-              const SizedBox(width: 10.0),
-              Icon(widget.icon, color: Color(0xFF1B896E)),
+              if (filePath == null) const SizedBox(width: 10.0),
+              if (filePath == null) Icon(widget.icon, color: Color(0xFF1B896E)),
             ],
           ),
         ),
