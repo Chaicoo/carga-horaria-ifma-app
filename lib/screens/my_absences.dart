@@ -223,7 +223,10 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowDescription1:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
                         rowTitle2: 'Horários:',
-                        rowDescription2: 'Row 2 Value',
+                        rowDescription2: [
+                          'M3 - Estrutura de dados (Info 2)',
+                          'M4 - Estrutura de dados (Info 2)'
+                        ],
                         rowTitle3: 'Status:',
                         rowDescription3: 0,
                       ),
@@ -233,7 +236,10 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowDescription1:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
                         rowTitle2: 'Horários:',
-                        rowDescription2: 'Row 2 Value',
+                        rowDescription2: [
+                          'M3 - Estrutura de dados (Info 2)',
+                          'M4 - Estrutura de dados (Info 2)'
+                        ],
                         rowTitle3: 'Status:',
                         rowDescription3: 1,
                       ),
@@ -243,7 +249,12 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                         rowDescription1:
                             'Participação em oficina na SNCT realizada em Imperatriz.',
                         rowTitle2: 'Horários:',
-                        rowDescription2: 'Row 2 Value',
+                        rowDescription2: [
+                          'M3 - Estrutura de dados (Info 2)',
+                          'M4 - Estrutura de dados (Info 2)',
+                          'M5 - Estrutura de dados (Info 2)',
+                          'M6 - Estrutura de dados (Info 2)'
+                        ],
                         rowTitle3: 'Status:',
                         rowDescription3: 2,
                       ),

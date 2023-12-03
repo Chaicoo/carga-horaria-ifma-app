@@ -7,7 +7,7 @@ class ExpandingCardAbsences extends StatefulWidget {
   final String rowTitle1;
   final String rowDescription1;
   final String rowTitle2;
-  final String rowDescription2;
+  final List<String> rowDescription2; // Change to a list of strings
   final String rowTitle3;
   final int rowDescription3;
 
@@ -56,7 +56,8 @@ class _ExpandingCardAbsencesState extends State<ExpandingCardAbsences> {
               children: [
                 _buildRow(widget.rowTitle1, widget.rowDescription1),
                 _buildDivider(),
-                _buildRow(widget.rowTitle2, widget.rowDescription2),
+                _buildColumn(widget.rowTitle2,
+                    widget.rowDescription2), // Updated to use _buildColumn
                 _buildDivider(),
                 _buildRow(widget.rowTitle3,
                     _getDescriptionText(widget.rowDescription3)),
@@ -81,6 +82,57 @@ class _ExpandingCardAbsencesState extends State<ExpandingCardAbsences> {
           });
         },
       ),
+    );
+  }
+
+  Widget _buildColumn(String header, List<String> values) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          header,
+          style: const TextStyle(
+            color: Color(0xFF4C525A),
+            fontSize: 18,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            height: 0,
+          ),
+        ),
+        const SizedBox(height: 8.0),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: values
+              .map(
+                (value) => Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 4.0),
+                      child: Icon(
+                        Icons.circle,
+                        size: 16,
+                        color: Color(0xFF758D94),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          color: Color(0xFF758D94),
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+              .toList(),
+        ),
+      ],
     );
   }
 
