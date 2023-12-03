@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
 import '../components/card_absences.dart';
+import '../components/card_take_classes.dart';
 import '../components/custom_select.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
@@ -124,7 +125,16 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                       SizedBox(height: 16),
                       Column(
                         children: [
-                          
+                          CardTakeClass(
+                            title: 'Nome da disciplina (turma - turno)',
+                            row1Value: '12/10/2023',
+                            row2Value: 'Deferido',
+                          ),
+                          CardTakeClass(
+                            title: 'Nome da disciplina (turma - turno)',
+                            row1Value: '12/10/2023',
+                            row2Value: 'Deferido',
+                          ),
                           SizedBox(height: 60),
                         ],
                       )
@@ -146,7 +156,6 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
                         ),
                       ),
                       SizedBox(height: 16),
-                      
                       SizedBox(height: 240),
                     ],
                   ),
