@@ -6,7 +6,6 @@ import '../components/button.dart';
 import '../components/card_absences.dart';
 import '../components/card_classes_taken.dart';
 import '../components/card_take_classes.dart';
-import '../components/custom_select.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
 import '../components/input_text_area.dart';
