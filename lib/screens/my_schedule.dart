@@ -78,6 +78,101 @@ class MyScheduleScreen extends StatelessWidget {
                   'Criptografia, 60h (Danilo Rodrigues)',
                 ],
               ),
+              ExpandableCardSchedule(
+                title: 'Segunda - 09/10',
+                morningSchedule: const [
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Vago',
+                  'Vago'
+                ],
+                afternoonSchedule: const [
+                  'Vago',
+                  'Vago',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                ],
+              ),
+              ExpandableCardSchedule(
+                title: 'Terça - 10/10',
+                morningSchedule: const [
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Vago',
+                  'Vago'
+                ],
+                afternoonSchedule: const [
+                  'Vago',
+                  'Vago',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                ],
+              ),
+              ExpandableCardSchedule(
+                title: 'Quarta - 11/10',
+                morningSchedule: const [
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Vago',
+                  'Vago'
+                ],
+                afternoonSchedule: const [
+                  'Vago',
+                  'Vago',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                ],
+              ),
+              ExpandableCardSchedule(
+                title: 'Quinta - 12/10',
+                morningSchedule: const [
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Vago',
+                  'Vago'
+                ],
+                afternoonSchedule: const [
+                  'Vago',
+                  'Vago',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                ],
+              ),
+              ExpandableCardSchedule(
+                title: 'Sexta - 13/10',
+                morningSchedule: const [
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Vago',
+                  'Vago'
+                ],
+                afternoonSchedule: const [
+                  'Vago',
+                  'Vago',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Direitos humanos, 30h (Carlos Eduardo)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                  'Criptografia, 60h (Danilo Rodrigues)',
+                ],
+              ),
             ],
           ),
         ),

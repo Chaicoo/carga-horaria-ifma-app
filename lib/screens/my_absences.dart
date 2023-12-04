@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../components/button.dart';
 import '../components/card_absences.dart';
-import '../components/custom_select.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
 import '../components/input_text_area.dart';
+import '../components/input_filter.dart'; // Import the InputFilter component
 
 class MyAbsencesScreen extends StatefulWidget {
   final bool useWhiteAppBar;
@@ -162,17 +162,18 @@ class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: 16),
                                   Expanded(
                                     flex: 3,
-                                    child: CustomSelect(
-                                      items: [
+                                    child: InputFilter(
+                                      // Replace CustomSelect with InputFilter
+                                      options: [
                                         'Viagem',
                                         'Doença',
                                         'Evento',
                                         'Consulta médica'
                                       ],
-                                      onChanged: (value) {
+                                      selectedOption: 'Viagem',
+                                      onOptionChanged: (value) {
                                         // Lógica a ser executada quando um item for selecionado
                                       },
                                     ),

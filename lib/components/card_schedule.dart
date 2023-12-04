@@ -6,8 +6,22 @@ class ExpandableCardSchedule extends StatefulWidget {
   final List<String> morningSchedule;
   final List<String> afternoonSchedule;
 
-  final List<String> morningFixedSchedule = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6'];
-  final List<String> afternoonFixedSchedule = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'];
+  final List<String> morningFixedSchedule = [
+    'M1',
+    'M2',
+    'M3',
+    'M4',
+    'M5',
+    'M6'
+  ];
+  final List<String> afternoonFixedSchedule = [
+    'T1',
+    'T2',
+    'T3',
+    'T4',
+    'T5',
+    'T6'
+  ];
 
   ExpandableCardSchedule({
     Key? key,
@@ -46,13 +60,25 @@ class _ExpandableCardScheduleState extends State<ExpandableCardSchedule> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 16),
                 CupertinoSegmentedControl(
                   children: const {
-                    0: Text('Matutino'),
-                    1: Text('Vespertino'),
+                    0: Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text('Matutino'),
+                      ),
+                    ),
+                    1: Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text('Vespertino'),
+                      ),
+                    ),
                   },
                   groupValue: selectedSegment,
                   onValueChanged: (int? value) {
