@@ -199,6 +199,7 @@ class LoginScreen extends StatelessWidget {
                                   builder: (context) => HomeScreen(
                                     nomeUsuario: nomeUsuario,
                                     fotoBase64: fotoBase64,
+                                    token: token,
                                   ),
                                 ),
                               );

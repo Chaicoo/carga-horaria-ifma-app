@@ -13,12 +13,14 @@ import '../components/button.dart';
 class HomeScreen extends StatelessWidget {
   final String nomeUsuario;
   final String fotoBase64;
+  final String token;
 
-  const HomeScreen({
-    Key? key,
-    required this.nomeUsuario,
-    required this.fotoBase64,
-  }) : super(key: key);
+  const HomeScreen(
+      {Key? key,
+      required this.nomeUsuario,
+      required this.fotoBase64,
+      required this.token})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 13.0), // Set the top margin
+              margin: const EdgeInsets.only(top: 13.0),
               child: const Text.rich(
                 TextSpan(
                   children: [
@@ -176,8 +178,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const MyProgressScreen(useWhiteAppBar: true)),
+                            builder: (context) => MyProgressScreen(
+                                useWhiteAppBar: true, token: token)),
                       );
                     },
                   ),

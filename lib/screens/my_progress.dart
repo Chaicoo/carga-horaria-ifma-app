@@ -1,10 +1,51 @@
 import 'package:flutter/material.dart';
 import '../components/card_progress.dart';
+import '../routes/api_client_get.dart';
 
-class MyProgressScreen extends StatelessWidget {
+class MyProgressScreen extends StatefulWidget {
   final bool useWhiteAppBar;
-  const MyProgressScreen({Key? key, this.useWhiteAppBar = false})
-      : super(key: key);
+  final String token;
+
+  const MyProgressScreen({
+    Key? key,
+    required this.useWhiteAppBar,
+    required this.token,
+  }) : super(key: key);
+
+  @override
+  _MyProgressScreenState createState() => _MyProgressScreenState();
+}
+
+class _MyProgressScreenState extends State<MyProgressScreen> {
+  List<Map<String, dynamic>> progressData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      final apiClient = ApiClient(token: widget.token);
+      final dynamic data = await apiClient
+          .getData('/api/cargahoraria/relatorio/progresso-ch/professor-logado');
+
+      if (data is List) {
+        final List<Map<String, dynamic>> dataList =
+            data.cast<Map<String, dynamic>>();
+        setState(() {
+          progressData = dataList;
+        });
+      } else {
+        print('Unexpected data format: $data');
+      }
+
+      print(data);
+    } catch (e) {
+      print('Erro ao carregar dados: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +77,14 @@ class MyProgressScreen extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: useWhiteAppBar ? Colors.white : null,
+        backgroundColor: widget.useWhiteAppBar ? Colors.white : null,
         iconTheme: const IconThemeData(color: Color(0xFF686565)),
       ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
           padding: const EdgeInsets.all(16.0),
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -58,42 +99,14 @@ class MyProgressScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 26),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '10',
-                workloadCompleted: '5',
-                progressPercent: 0.5,
-              ),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '15',
-                workloadCompleted: '10',
-                progressPercent: 0.667,
-              ),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '20',
-                workloadCompleted: '15',
-                progressPercent: 0.75,
-              ),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '20',
-                workloadCompleted: '15',
-                progressPercent: 0.75,
-              ),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '20',
-                workloadCompleted: '15',
-                progressPercent: 0.75,
-              ),
-              ExpandingCardProgress(
-                title: 'Nome da disciplina (turno)',
-                workload: '20',
-                workloadCompleted: '15',
-                progressPercent: 0.75,
-              ),
+              // Exibir um card para cada item na lista de dados
+              for (var item in progressData)
+                ExpandingCardProgress(
+                  title: item['toStringDisciplina'],
+                  workload: item['cargaHorariaDisciplina'].toString(),
+                  workloadCompleted: item['cargaHorariaMinistrada'].toString(),
+                  progressPercent: item['porcentagemMinistrada'] / 100,
+                ),
             ],
           ),
         ),
