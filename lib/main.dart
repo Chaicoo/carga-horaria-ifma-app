@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      home: const LoginScreen(useWhiteAppBar: false)
+      home: LoginScreen(useWhiteAppBar: false)
     );
   }
 }

@@ -3,10 +3,14 @@ import 'package:carga_horaria_ifma/components/input_password.dart';
 import 'package:flutter/material.dart';
 import '../components/input.dart';
 import '../components/button.dart';
+import '../routes/api_client_login.dart';
 import './home.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key, required bool useWhiteAppBar}) : super(key: key);
+  final TextEditingController matriculaController = TextEditingController();
+  final TextEditingController senhaController = TextEditingController();
+
+  LoginScreen({Key? key, required bool useWhiteAppBar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 13.0), // Set the top margin
+              margin: const EdgeInsets.only(top: 13.0),
               child: const Text.rich(
                 TextSpan(
                   children: [
@@ -100,8 +104,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(
-                            height: 20), // Adjust the spacing as needed
+                        const SizedBox(height: 20),
                         SizedBox(
                           height: 36,
                           child: Stack(
@@ -159,29 +162,49 @@ class LoginScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                            height: 20), // Adjust the spacing as needed
+                        const SizedBox(height: 20),
                         Input(
                           labelText: 'Matricula SIAPE',
-                          controller: TextEditingController(),
+                          controller: matriculaController,
                         ),
-                        const SizedBox(
-                            height: 20), // Adjust the spacing as needed
+                        const SizedBox(height: 20),
                         InputPassword(
                           labelText: 'Senha',
-                          controller: TextEditingController(),
+                          controller: senhaController,
                         ),
-                        const SizedBox(
-                            height: 20), // Adjust the spacing as needed
+                        const SizedBox(height: 20),
                         Button(
                           label: 'LOGIN',
                           width: 200,
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()),
-                            );
+                          onPressed: () async {
+                            final apiClient =
+                                ApiClientLogin('http://192.168.1.107:31009');
+
+                            try {
+                              final String matricula = matriculaController.text;
+                              final String senha = senhaController.text;
+
+                              final response =
+                                  await apiClient.login(matricula, senha);
+
+                              final String token = response['token'];
+                              final String nomeUsuario = response[
+                                  'nomeUsuario'];
+                              final String fotoBase64 = response[
+                                  'fotoBase64'];
+
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(
+                                    nomeUsuario: nomeUsuario,
+                                    fotoBase64: fotoBase64,
+                                  ),
+                                ),
+                              );
+                            } catch (e) {
+                              print('Erro durante o login: $e');
+                            }
                           },
                         )
                       ],

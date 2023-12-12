@@ -1,4 +1,5 @@
-// screens/login.dart
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:carga_horaria_ifma/screens/classes_available.dart';
 import 'package:carga_horaria_ifma/screens/general_schedule.dart';
 import 'package:carga_horaria_ifma/screens/login.dart';
@@ -10,11 +11,19 @@ import '../components/card.dart';
 import '../components/button.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final String nomeUsuario;
+  final String fotoBase64;
+
+  const HomeScreen({
+    Key? key,
+    required this.nomeUsuario,
+    required this.fotoBase64,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double appBarHeight = AppBar().preferredSize.height;
+    Uint8List bytes = base64.decode(fotoBase64);
 
     return Scaffold(
       appBar: AppBar(
@@ -80,13 +89,13 @@ class HomeScreen extends StatelessWidget {
                     margin: EdgeInsets.only(top: appBarHeight),
                     width: 100,
                     height: 100,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      backgroundImage: MemoryImage(
+                          bytes), // Use MemoryImage para criar uma imagem a partir de bytes
                     ),
-                    // child: Image.network('../assets/if_logo.png'),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 58,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -94,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Nome',
+                          nomeUsuario,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -155,8 +164,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MyScheduleScreen(
-                                useWhiteAppBar: true)),
+                            builder: (context) =>
+                                const MyScheduleScreen(useWhiteAppBar: true)),
                       );
                     },
                   ),
@@ -204,7 +213,9 @@ class HomeScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LoginScreen(useWhiteAppBar: false,)),
+                            builder: (context) => LoginScreen(
+                                  useWhiteAppBar: false,
+                                )),
                       );
                     },
                   )

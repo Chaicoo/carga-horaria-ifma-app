@@ -42,7 +42,7 @@ class _InputFilterState extends State<InputFilter> {
                     option,
                     style: TextStyle(
                       color: Color(0xFF758D94),
-                      fontSize: 18,
+                      fontSize: 14,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
                     ),
