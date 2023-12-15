@@ -14,6 +14,7 @@ class ApiClient {
     final Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
+      'Accept-Charset': 'utf-8',
     };
 
     final http.Response response = await http.get(
@@ -22,7 +23,8 @@ class ApiClient {
     );
 
     if (response.statusCode == 200) {
-      final dynamic responseData = jsonDecode(response.body);
+      final dynamic responseData =
+          jsonDecode(Utf8Decoder().convert(response.bodyBytes));
       return responseData;
     } else {
       throw Exception('Falha ao obter dados: ${response.statusCode}');
