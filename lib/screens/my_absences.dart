@@ -7,20 +7,51 @@ import '../components/card_absences.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
 import '../components/input_text_area.dart';
-import '../components/input_filter.dart'; // Import the InputFilter component
+import '../components/input_filter.dart';
+import '../routes/api_client_get.dart'; // Import the InputFilter component
 
 class MyAbsencesScreen extends StatefulWidget {
   final bool useWhiteAppBar;
+  final String token;
 
-  const MyAbsencesScreen({Key? key, this.useWhiteAppBar = false})
-      : super(key: key);
+  const MyAbsencesScreen({
+    Key? key,
+    required this.useWhiteAppBar,
+    required this.token,
+  }) : super(key: key);
 
   @override
   _MyAbsencesScreenState createState() => _MyAbsencesScreenState();
 }
 
 class _MyAbsencesScreenState extends State<MyAbsencesScreen> {
-  int selectedSegment = 0; // Index of the selected segment
+  int selectedSegment = 0;
+  late List<dynamic> responseData;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (selectedSegment == 1) {
+      _fetchData();
+    }
+  }
+
+  Future<void> _fetchData() async {
+    try {
+      final apiClient = ApiClient(token: widget.token);
+      final dynamic result = await apiClient
+          .getData('/api/cargahoraria/professor-logado/afastamentos');
+
+      setState(() {
+        responseData = result;
+      });
+
+      print(responseData);
+    } catch (e) {
+      print('Erro ao obter dados da API: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

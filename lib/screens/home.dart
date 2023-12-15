@@ -190,8 +190,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const MyAbsencesScreen(useWhiteAppBar: true)),
+                            builder: (context) => MyAbsencesScreen(
+                                useWhiteAppBar: true, token: token)),
                       );
                     },
                   ),
@@ -202,8 +202,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const ClassesAvailableScreen(
-                                useWhiteAppBar: true)),
+                            builder: (context) => ClassesAvailableScreen(
+                                useWhiteAppBar: true, token: token)),
                       );
                     },
                   ),

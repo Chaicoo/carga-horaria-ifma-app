@@ -1,8 +1,8 @@
-// screens/login.dart
-import 'package:carga_horaria_ifma/components/input_password.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../components/input.dart';
 import '../components/button.dart';
+import '../components/input_password.dart';
 import '../routes/api_client_login.dart';
 import './home.dart';
 
@@ -11,6 +11,16 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController senhaController = TextEditingController();
 
   LoginScreen({Key? key, required bool useWhiteAppBar}) : super(key: key);
+
+  void _showErrorToast() {
+    Fluttertoast.showToast(
+      msg: "Falha no login, usuário ou senha errados",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -188,10 +198,9 @@ class LoginScreen extends StatelessWidget {
                                   await apiClient.login(matricula, senha);
 
                               final String token = response['token'];
-                              final String nomeUsuario = response[
-                                  'nomeUsuario'];
-                              final String fotoBase64 = response[
-                                  'fotoBase64'];
+                              final String nomeUsuario =
+                                  response['nomeUsuario'];
+                              final String fotoBase64 = response['fotoBase64'];
 
                               Navigator.pushReplacement(
                                 context,
@@ -205,6 +214,7 @@ class LoginScreen extends StatelessWidget {
                               );
                             } catch (e) {
                               print('Erro durante o login: $e');
+                              _showErrorToast();
                             }
                           },
                         )

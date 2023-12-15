@@ -9,19 +9,54 @@ import '../components/card_take_classes.dart';
 import '../components/input_date.dart';
 import '../components/input_file.dart';
 import '../components/input_text_area.dart';
+import '../routes/api_client_get.dart';
 
 class ClassesAvailableScreen extends StatefulWidget {
   final bool useWhiteAppBar;
+  final String token;
 
-  const ClassesAvailableScreen({Key? key, this.useWhiteAppBar = false})
-      : super(key: key);
+  const ClassesAvailableScreen({
+    Key? key,
+    required this.useWhiteAppBar,
+    required this.token,
+  }) : super(key: key);
 
   @override
   _ClassesAvailableScreenState createState() => _ClassesAvailableScreenState();
 }
 
 class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
-  int selectedSegment = 0; // Index of the selected segment
+  int selectedSegment = 0;
+  late List<dynamic> responseData;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _fetchData();
+  }
+
+  Future<void> _fetchData() async {
+    try {
+      final apiClient = ApiClient(token: widget.token);
+
+      String apiPath = '/api/cargahoraria/professor-logado/aulas-disponiveis';
+      if (selectedSegment == 1) {
+        apiPath =
+            '/api/cargahoraria/professor-logado/aulas-disponiveis/assumidas';
+      }
+
+      final dynamic result = await apiClient.getData(apiPath);
+
+      setState(() {
+        responseData = result;
+      });
+
+      print(responseData);
+    } catch (e) {
+      print('Erro ao obter dados da API: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +100,7 @@ class _ClassesAvailableScreenState extends State<ClassesAvailableScreen> {
             padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment:
-                  MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Aulas disponíveis',
